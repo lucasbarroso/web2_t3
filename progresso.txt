@@ -1,0 +1,12 @@
+login super usuario funcionando:
+email:admin@admin.com
+senha:CHAVEadmin // mudar para somente admin
+
+
+todo testes: testar create user com superusuario logado
+
+lista de users ta QUEBRADA, tem q arrumar
+testar todo o resto um por um
+
+usuariosimples@gmail.com
+senha:simples

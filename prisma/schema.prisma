@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../dados.db"
+}
+
+model User {
+  id          Int           @id @default(autoincrement())
+  name        String
+  email       String        @unique
+  password    String
+  role        String        @default("USER") 
+  image       String?
+  permissions Permission[]
+  accessLogs  AccessLog[]
+}
+
+model Permission {
+  id       Int     @id @default(autoincrement())
+  module   String  
+  user     User    @relation(fields: [userId], references: [id])
+  userId   Int
+}
+
+model AccessLog {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  url       String
+  granted   Boolean
+  timestamp DateTime @default(now())
+}
