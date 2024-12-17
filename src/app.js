@@ -8,8 +8,8 @@ import { authRoutes } from './routes/authRoutes.js';
 import { userRoutes } from './routes/userRoutes.js';
 import { financeiroRoutes } from './routes/financeiroRoutes.js';
 import { relatorioRoutes } from './routes/relatorioRoutes.js';
-import { produtoRoutes } from './routes/produtoRoutes.js';
-
+import { produtoRoutes } from './routes/produtoRoutes.js'; // Verifique esta linha
+import { homeRoutes } from './routes/homeRoutes.js';
 
 // Resolvendo o equivalente a __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -37,9 +37,13 @@ app.set('views', path.join(__dirname, 'views'));
 app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
 app.use('/financeiro', financeiroRoutes);
-app.use('/relatorios', relatorioRoutes);
-app.use('/produtos', produtoRoutes);
+app.use('/relatorio', relatorioRoutes);
+app.use('/produto', produtoRoutes);
+app.use(homeRoutes); 
 
+app.get('/', (req, res) => {
+  res.redirect('auth/login');
+});
 // // Error handling
 // app.use((req, res) => {
 //   res.status(404).render('error', { message: 'Página não encontrada.' });
@@ -71,8 +75,8 @@ async function createSuperUser() {
   }
 }
 
-// Chama a função de criação do superusuário
 createSuperUser();
+
 // Start server
 const PORT = 3000;
 app.listen(PORT, () => {

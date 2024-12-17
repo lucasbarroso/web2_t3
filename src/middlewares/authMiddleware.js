@@ -5,6 +5,7 @@ export const ensureLoggedIn = (req, res, next) => {
   if (req.session.userId) {
     return next();
   }
+  console.log('Usuário não está logado');
   res.redirect('/auth/login');
 };
 
@@ -12,12 +13,14 @@ export const ensureAdmin = (req, res, next) => {
   if (req.session.role === 'ADMIN' || req.session.role === 'SUPERADMIN') {
     return next();
   }
+  console.log('Usuário não tem permissão de administrador');
   res.render('error', { message: 'Sem permissão para acessar esta página.' });
 };
 
 export const ensurePermission = (module) => async (req, res, next) => {
   const { userId } = req.session;
   if (!userId) {
+    console.log('Usuário não está logado');
     return res.redirect('/auth/login');
   }
 
@@ -30,6 +33,7 @@ export const ensurePermission = (module) => async (req, res, next) => {
       return next();
     }
 
+    console.log(`Usuário ${userId} não tem permissão para acessar o módulo ${module}`);
     res.render('error', { message: `Sem permissão para acessar o módulo ${module}.` });
   } catch (error) {
     console.error('Erro ao verificar permissões:', error);

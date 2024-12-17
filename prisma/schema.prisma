@@ -6,7 +6,7 @@ datasource db {
   provider = "sqlite"
   url      = "file:../dados.db"
 }
-
+//pow o prisma não tem suporte para utilizar enum com sqlite na hora de fazer migrations...
 model User {
   id          Int           @id @default(autoincrement())
   name        String

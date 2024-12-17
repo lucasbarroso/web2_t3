@@ -5,7 +5,7 @@ import { ensurePermission } from '../middlewares/authMiddleware.js';
 const router = express.Router();
 
 // Ensure only authorized users can access
-router.use(ensurePermission('PRODUTOS'));
+router.use(ensurePermission('PRODUTO'));
 
 // Produtos main page
 router.get('/', getProdutoPage);

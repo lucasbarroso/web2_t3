@@ -1,12 +1,17 @@
 login super usuario funcionando:
 email:admin@admin.com
-senha:CHAVEadmin // mudar para somente admin
+senha:CHAVEadmin // mudar para somente admin #FIXED
 
 
 todo testes: testar create user com superusuario logado
 
-lista de users ta QUEBRADA, tem q arrumar
-testar todo o resto um por um
+lista de users ta QUEBRADA, tem q arrumar #FIXED
+testar todo o resto um por um #FIXED?
 
 usuariosimples@gmail.com
 senha:simples
+
+admin2@admin2.com
+senha: admin2
+
+last day: resolver o problema do usuario não aparecendo na /home apos login

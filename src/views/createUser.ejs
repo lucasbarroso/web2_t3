@@ -16,7 +16,25 @@
     <input type="password" id="password" name="password" required>
     <br>
     <label for="role">Role:</label>
-    <input type="text" id="role" name="role" required>
+    <br>
+    <% if (sessionUserRole === 'SUPERADMIN') { %>
+      <input type="radio" id="admin" name="role" value="ADMIN" required>
+      <label for="admin">ADMIN</label>
+      <br>
+    <% } %>
+    <input type="radio" id="user" name="role" value="USER" required>
+    <label for="user">USER</label>
+    <br>
+    <label for="modules">Módulos:</label>
+    <br>
+    <input type="checkbox" id="financeiro" name="modules" value="FINANCEIRO">
+    <label for="financeiro">Financeiro</label>
+    <br>
+    <input type="checkbox" id="produto" name="modules" value="PRODUTO">
+    <label for="produto">Produto</label>
+    <br>
+    <input type="checkbox" id="relatorio" name="modules" value="RELATORIO">
+    <label for="relatorio">Relatório</label>
     <br>
     <button type="submit">Criar Usuário</button>
   </form>

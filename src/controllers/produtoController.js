@@ -1,5 +1,6 @@
 // controllers/produtoController.js
 
 export const getProdutoPage = (req, res) => {
-  res.render('modulePage', { title: 'Produtos', message: 'Bem-vindo ao módulo de produtos!' });
+  console.log("rodando produtos...")
+  res.render('modulePage', { title: 'Produto', message: 'Bem-vindo ao módulo de produtos!' });
 };

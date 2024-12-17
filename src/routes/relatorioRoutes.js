@@ -5,7 +5,7 @@ import { ensurePermission } from '../middlewares/authMiddleware.js';
 const router = express.Router();
 
 // Ensure only authorized users can access
-router.use(ensurePermission('RELATORIOS'));
+router.use(ensurePermission('RELATORIO'));
 
 // Relatórios main page
 router.get('/', getRelatorioPage);

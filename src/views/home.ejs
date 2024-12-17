@@ -1,21 +1,30 @@
-<%- include('includes/head') %>
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tela Inicial</title>
+</head>
 <body>
-    <%- include('includes/nav') %>
+  <%- include('includes/head') %>
+  <%- include('includes/nav') %>
 
-    <h1>Tela Inicial</h1>
-    <% if (user) { %>
-        <p>Olá, <%= user.email %></p>
+  <h1>Tela Inicial</h1>
+  <% if (user) { %>
+    <p>Olá, <%= user.email %></p>
 
-        <form action="publicar-foto" method="post" enctype="multipart/form-data">
-            <input type="file" name="foto" id="fotoId">
-            <button type="submit">Publicar</button>
-        </form>
-
-        <a href="/logout">Sair</a>
-    <% } else { %>
-        <a href="/login">Login</a>
-        <a href="/register">Registrar</a>
-    <% } %>
+    <!-- Botões para os módulos -->
+    <a href="/financeiro">Financeiro</a>
+    <br>
+    <a href="/produto">Produto</a>
+    <br>
+    <a href="/relatorio">Relatório</a>
+    <br>
+    <form action="/auth/logout" method="POST">
+      <button type="submit">Sair</button>
+    </form>
+  <% } else { %>
+    <a href="/auth/login">Login</a>
+    <br>
+    <a href="/auth/register">Registrar</a>
+  <% } %>
 </body>
 </html>
