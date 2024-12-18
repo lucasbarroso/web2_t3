@@ -40,6 +40,7 @@ app.use('/financeiro', financeiroRoutes);
 app.use('/relatorio', relatorioRoutes);
 app.use('/produto', produtoRoutes);
 app.use(homeRoutes); 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.get('/', (req, res) => {
   res.redirect('auth/login');

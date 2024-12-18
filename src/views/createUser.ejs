@@ -5,7 +5,7 @@
 </head>
 <body>
   <h1>Criar Usuário</h1>
-  <form action="/users/create" method="POST">
+  <form action="/users/create" method="POST" enctype="multipart/form-data">
     <label for="name">Nome:</label>
     <input type="text" id="name" name="name" required>
     <br>
@@ -17,11 +17,9 @@
     <br>
     <label for="role">Role:</label>
     <br>
-    <% if (sessionUserRole === 'SUPERADMIN') { %>
-      <input type="radio" id="admin" name="role" value="ADMIN" required>
-      <label for="admin">ADMIN</label>
-      <br>
-    <% } %>
+    <input type="radio" id="admin" name="role" value="ADMIN" required>
+    <label for="admin">ADMIN</label>
+    <br>
     <input type="radio" id="user" name="role" value="USER" required>
     <label for="user">USER</label>
     <br>
@@ -35,6 +33,9 @@
     <br>
     <input type="checkbox" id="relatorio" name="modules" value="RELATORIO">
     <label for="relatorio">Relatório</label>
+    <br>
+    <label for="image">Foto de Perfil:</label>
+    <input type="file" id="image" name="image">
     <br>
     <button type="submit">Criar Usuário</button>
   </form>

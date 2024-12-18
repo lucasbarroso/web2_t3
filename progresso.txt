@@ -1,6 +1,6 @@
 login super usuario funcionando:
 email:admin@admin.com
-senha:CHAVEadmin // mudar para somente admin #FIXED
+senha:admin // mudar para somente admin #FIXED
 
 
 todo testes: testar create user com superusuario logado
@@ -14,4 +14,4 @@ senha:simples
 admin2@admin2.com
 senha: admin2
 
-last day: resolver o problema do usuario não aparecendo na /home apos login
+last day: resolver o problema do usuario não aparecendo na /home apos login #FIXED

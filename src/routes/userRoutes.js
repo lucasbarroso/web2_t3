@@ -1,6 +1,6 @@
 
 import express from 'express';
-import { getCreateUserPage, createUser, listUsers } from '../controllers/userController.js';
+import { getCreateUserPage, createUser, listUsers, upload } from '../controllers/userController.js';
 import { ensureAdmin } from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
@@ -11,8 +11,8 @@ router.use(ensureAdmin);
 // Create user page
 router.get('/create', getCreateUserPage);
 
-// Create user action
-router.post('/create', createUser);
+// Rota para criar usuário com upload de foto 
+router.post('/create', upload.single('image'), createUser);
 
 // List all users
 router.get('/', listUsers);
